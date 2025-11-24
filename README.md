@@ -89,6 +89,32 @@ Access **Tools → DNI Agent Console** to test abilities locally:
 *   Test UI for summarize, insert at index, and safe title generation
 *   Useful for validating your setup before deploying agents
 
+---
+
+## Official MCP Adapter Integration
+
+This plugin is fully compatible with the WordPress MCP Adapter (v0.3.0+).
+
+When the Abilities API (v0.4.0+) is present, your Dual-Native Abilities are automatically discovered and exposed as MCP tools/resources/prompts with full observability.
+
+### Configuration
+
+1. Install MCP Adapter: https://github.com/WordPress/mcp-adapter (v0.3.0 or later).
+2. Install and activate Dual-Native Abilities (this plugin).
+3. Ensure Abilities API v0.4.0+ is available so abilities are registered.
+4. Point your MCP client (e.g., Claude/IDE) at the Adapter's HTTP server.
+
+### Why use the Official Adapter?
+
+- Observability: unified event name (e.g., mcp.request) with success/failure status.
+- Transports: HTTP and STDIO, plus an interface for custom transports.
+- Multi-server: run multiple MCP servers with different configs from one site.
+- Tooling: validation, permissions, and WP-CLI integration.
+
+Note: For local development without the official adapter, you can still use the Node server in the Dual-Native repo: https://github.com/antunjurkovic-collab/wp-dual-native/tree/master/tools/mcp-server
+
+---
+
 ## Usage Example (MCP / Agent)
 
 An Agent using this bridge can perform a safe edit loop:
